@@ -6,16 +6,16 @@ import colored
 indent_size = 4
 
 
-def _terminal_width():
+def _terminal_width() -> int:
     return shutil.get_terminal_size(fallback=(80, 50)).columns
 
 
-def box(text):
+def box(text: str) -> str:
     filled = '#' * _terminal_width()
     blank = '#' + ' ' * (_terminal_width() - 2) + '#'
     prefix = "# ====> "
     suffix = " #"
-    lines = split(text, " ", _terminal_width() - len(prefix) - len(suffix))
+    lines = _split(text, " ", _terminal_width() - len(prefix) - len(suffix))
 
     output = ['', filled, blank]
     for line in lines:
@@ -27,7 +27,7 @@ def box(text):
     return output
 
 
-def split(text, sep, length):
+def _split(text: str, sep: str, length: int) -> list[str]:
     separated = []
     words = text.split(sep)
     counter = 0
@@ -43,24 +43,24 @@ def split(text, sep, length):
         words = words[iterator:]
         iterator = 0
         counter = 0
-
     return separated
 
 
-def vsep():
+def _vsep() -> str:
     return '\n' + '=' * int(_terminal_width() / 2) + '\n\n'
 
 
-def pretty(obj):
+def pretty(obj: any) -> str:
     return '\n' + pprint.pformat(obj, indent=indent_size)
 
 
-def indent(text, amount=1, ch=' '):
+def indent(text: str, amount: int=1, ch: str=' ') -> str:
     return textwrap.indent(text, amount*indent_size*ch)
 
 
-def colorize(text, color : str):
+def colorize(text: str, color: str) -> str:
     return colored.stylize(text, colored.fg(color))
 
-def colorize_bg(text, color : str):
+
+def colorize_bg(text: str, color: str) -> str:
     return colored.stylize(text, colored.bg(color))
