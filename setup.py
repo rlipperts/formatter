@@ -12,7 +12,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/rlipperts/formatter",
-    packages=setuptools.find_packages(include='text_formatter'),
+    packages=['text_formatter'],
     install_requires=[
         'pprintpp',
         'colored',
