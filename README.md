@@ -17,6 +17,7 @@ install_requires = [
     'text-formatter @ git+ssh://git@github.com/rlipperts/formatter.git@master#egg=text-formatter-0.0.2',
 ],
 ```
+Make sure you update the version in the `egg=logging-configurator-...` portion to the correct version specified in the logging-configurators setup.py. This might not work if you plan on publishing your package on PyPI.
 
 ## usage
 
