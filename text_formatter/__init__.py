@@ -1,1 +1,1 @@
-from .formatter import box, colorize, colorize_bg, indent, pretty
+from .formatter import box, colorize, colorize_bg, heading, highlight, indent, pretty

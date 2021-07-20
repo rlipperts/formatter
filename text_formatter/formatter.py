@@ -4,10 +4,18 @@ import pprintpp as pprint
 import colored
 
 indent_size = 4
-
+highlight_color = 'orange_1'
 
 def _terminal_width() -> int:
     return shutil.get_terminal_size(fallback=(80, 50)).columns
+
+
+def heading(text: str) -> str:
+    return highlight(box(text))
+
+
+def highlight(text: str) -> str:
+    return colorize(text, highlight_color)
 
 
 def box(text: str) -> str:
