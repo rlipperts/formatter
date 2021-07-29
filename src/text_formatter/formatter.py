@@ -4,8 +4,8 @@ Allows styling/formatting of text with custom functions and wrappers for pprintp
 """
 import shutil
 import textwrap
-import pprintpp as pprint
-import colored
+import pprintpp as pprint  # type: ignore
+import colored  # type: ignore
 
 INDENT_SIZE = 4
 HIGHLIGHT_COLOR = 'orange_1'
@@ -51,15 +51,14 @@ def box(text: str) -> str:
     suffix = ' ' + BOX_CHARACTER
     lines = _split(text, " ", _terminal_width() - len(prefix) - len(suffix))
 
-    output = ['', filled, blank]
+    buffer = ['', filled, blank]
     for line in lines:
-        output.append(prefix + line + ' ' * (_terminal_width() - len(prefix) - len(line) -
+        buffer.append(prefix + line + ' ' * (_terminal_width() - len(prefix) - len(line) -
                                              len(suffix)) + suffix)
-    output.append(blank)
-    output.append(filled)
-    output.append('')
-    output = '\n'.join(output)
-    return output
+    buffer.append(blank)
+    buffer.append(filled)
+    buffer.append('')
+    return '\n'.join(buffer)
 
 
 def _split(text: str, sep: str, length: int) -> list[str]:
@@ -96,10 +95,10 @@ def _vsep() -> str:
     return '\n' + BOX_CHARACTER * int(_terminal_width() / 2) + '\n\n'
 
 
-def pretty(obj: any) -> str:
+def pretty(obj) -> str:
     """
     Prettyprint a data structure.
-    :param obj: Data structure to print pretty
+    :param obj: Data to print pretty
     :return: String of pretty data structure representation
     """
     return '\n' + pprint.pformat(obj, indent=INDENT_SIZE)
