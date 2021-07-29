@@ -3,6 +3,16 @@ import setuptools
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+test_deps = [
+    'pytest',
+    'flake8',
+    'pylint',
+    'mypy',
+]
+extras = {
+    'test': test_deps
+}
+
 setuptools.setup(
     name="text-formatter",
     version="0.0.2",
@@ -12,7 +22,10 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/rlipperts/formatter",
-    packages=['text_formatter'],
+    packages=setuptools.find_packages(where='src'),
+    package_dir={'': 'src'},
+    tests_require=test_deps,
+    extras_require=extras,
     install_requires=[
         'pprintpp',
         'colored',
