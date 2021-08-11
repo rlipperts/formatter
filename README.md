@@ -11,7 +11,7 @@ pip install git+ssh://git@github.com/rlipperts/formatter.git
 ```
 
 ### setup.py
-To automatically install the logging configurator with your python package include these lines in your setup.py
+To automatically install the text formatter with your python package include these lines in your setup.py
 ```python
 install_requires = [
     'text-formatter @ git+ssh://git@github.com/rlipperts/formatter.git@master#egg=text-formatter-0.0.2',
