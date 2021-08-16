@@ -75,6 +75,8 @@ def _split(text: str, sep: str, length: int) -> list[str]:
     iterator = 0
 
     while len(words) > 0:
+        if len(words[iterator]) > length:
+            words[iterator] = words[iterator][:length - 5] + '...'
         while counter + len(words[iterator]) + 1 < length:
             counter += len(words[iterator]) + 1
             iterator += 1

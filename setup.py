@@ -5,6 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 test_deps = [
     'pytest',
+    'pytest-timeout',
     'flake8',
     'pylint',
     'mypy',
