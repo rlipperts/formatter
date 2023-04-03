@@ -25,7 +25,7 @@ jobs:
         pip install .[test]
     - name: Lint with flake8
       run: |
-        flake8 src/text_formatter
+        flake8 src/terminal_formatter
     - name: Lint with pylint
       run: |
-        pylint src/text_formatter
+        pylint src/terminal_formatter

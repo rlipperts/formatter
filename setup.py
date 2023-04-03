@@ -15,17 +15,17 @@ extras = {
 }
 
 setuptools.setup(
-    name='text-formatter',
+    name='terminal-formatter',
     version='0.0.2',
     author='Ruben Lipperts',
     author_email='',
-    description='Simple text output formatter that helps with printing pretty stuff',
+    description='Simple terminal text formatter that helps with printing pretty stuff',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/rlipperts/formatter',
     package_dir={'': 'src'},
-    packages=['text_formatter'],
-    package_data={'text_formatter': ['py.typed']},
+    packages=['terminal_formatter'],
+    package_data={'terminal_formatter': ['py.typed']},
     tests_require=test_deps,
     extras_require=extras,
     install_requires=[

@@ -1,24 +1,43 @@
-# text formatter
-Simple text output formatter that helps with printing pretty stuff 
+# terminal formatter
+The Terminal Formatter Library provides a few easy-to-use functions for formatting terminal-printed
+text with custom functions and wrappers for pprintpp and colored. This library is mostly 
+intended for personal use and might introduce breaking changes at any point.
+
+With this library, you can:
+
+* Highlight text
+* Wrap text inside a box to have it stand out even in large amounts of output
+* Pretty-print data structures
+* Indent blocks of text
+* Colorize text and backgrounds for colored terminal printing
 
 ## installation
-There are no PyPI releases. Neither are they planned.
-
-### manual
-For installation with pip directly from this GitHub repository simply open a terminal and type
+The library can be installed with
 ```
-pip install git+ssh://git@github.com/rlipperts/formatter.git
+pip install terminal-formatter
+```
+It then can be imported in your script with
+```
+import terminal-formatter
 ```
 
-### setup.py
-To automatically install the text formatter with your python package include these lines in your setup.py
-```python
-install_requires = [
-    'text-formatter @ git+ssh://git@github.com/rlipperts/formatter.git@master#egg=text-formatter-0.0.2',
-],
-```
-Make sure you update the version in the `egg=text-formatter-...` portion to the correct version specified in the logging-configurators setup.py. This might not work if you plan on publishing your package on PyPI.
 
-## usage
+## available functions
 
-Just wrap your text inside the functions and see what happens.
+`heading(text: str) -> str` - Formats headings, shortcut for box() inside highlight() function.
+
+`highlight(text: str) -> str` - Highlight text by changing its color to `orange_1`.
+
+`box(text: str) -> str` - Wraps text inside a box of `#` characters to have it stand out of even large amounts of output.
+
+`pretty(obj) -> str` - Prettyprint a data structure - wraps pprintpp's `format` function.
+
+`indent(text: str, amount: int = 1, indent_character: str = ' ') -> str` - Indent text by increments of four.
+
+`colorize(text: str, color: str) -> str` - Colorize given text for colored terminal printing.
+
+`colorize_bg(text: str, color: str) -> str` - Colorize given text's background for colored terminal printing.
+
+## license
+
+This library is licensed under the MIT License. See the LICENSE file for details.

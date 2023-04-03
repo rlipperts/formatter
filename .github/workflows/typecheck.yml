@@ -25,4 +25,4 @@ jobs:
         pip install .[test]
     - name: Typecheck with mypy
       run: |
-        mypy src/text_formatter
+        mypy src/terminal_formatter
